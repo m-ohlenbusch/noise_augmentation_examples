@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Multi-Microphone Noise Data Augmentation for DNN-based Own Voice Reconstruction for Hearables in Noisy Environments</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<div>
+<h1>
+Multi-Microphone Noise Data Augmentation for DNN-based Own Voice Reconstruction for Hearables in Noisy Environments</h1>
+<p>
+Mattes Ohlenbusch, Christian Rollwage, Simon Doclo
+</p>
+
+<h2>Abstract</h2>
+<p>
+Hearables with integrated microphones may offer communication benefits in noisy working environments, e.g. by transmitting the recorded own voice of the user. 
+Systems aiming at reconstructing the clean and full-bandwidth own voice from noisy microphone recordings are often based on supervised learning. 
+Recording a sufficient amount of noise required for training such a system is costly since noise transmission between outer and inner microphones varies individually. 
+Previously proposed methods either do not consider noise, only consider noise at outer microphones or assume inner and outer microphone noise to be independent during training, and it is not yet clear whether individualized noise can benefit the training of and own voice reconstruction system. 
+In this paper, we investigate several noise data augmentation techniques based on measured transfer functions to simulate multi-microphone noise. 
+Using augmented noise, we train a multi-channel own voice reconstruction system. 
+Experiments using real noise are carried out to investigate the generalization capability. 
+Results show that incorporating augmented noise yields large benefits, in particular considering individualized noise augmentation leads to higher performance. 
+</p>
+</div>
+
+<h2>Links</h2>
+<p>
+Arxiv preprint: <a href="https://arxiv.org/abs/2312.08908">https://arxiv.org/abs/2312.08908</a>
+</p>
+<p>
+ICASSP paper: <a href="https://doi.org/10.1109/ICASSP48485.2024.10447066">https://doi.org/10.1109/ICASSP48485.2024.10447066</a>
+</p>
+
+<p>
+Dataset of German own voice recordings: <a href="https://doi.org/10.5281/zenodo.10844599">https://doi.org/10.5281/zenodo.10844599</a>
+</p>
+<p>
+Transfer function measurements for simulating environmental noise at hearable microphones: <a href="https://doi.org/10.5281/zenodo.11196867">https://doi.org/10.5281/zenodo.11196867</a>
+</p>
+
+<h2>Results</h2>
+<figure>
+	<img src="noise_aug_PESQ.svg" alt="PESQ results.">
+	<figcaption>Own voice reconstruction results of the noise augmentation experiment with different noise augmentation methods in terms of PESQ.</figcaption>
+</figure>
+
+<figure>
+	<img src="noise_aug_STOI.svg" alt="STOI results.">
+	<figcaption>Own voice reconstruction results of the noise augmentation experiment with different noise augmentation methods in terms of STOI.</figcaption>
+</figure>
+
+<h2>Audio Examples</h2>
+<p>
+Examples of own voice in noisy environments, recorded at hearable microphones, and examples of processed signals by own voice reconstruction systems trained using recorded own voice signals and augmented environmental noise signals.
+</p>
+
+<table>
+
+<tr> 
+<td>
+ 
+</td>
+<td>
+Factory noise (5 dB SNR)
+</td>
+<td>
+Surgery room (0 dB SNR)
+</td>
+</tr>
+
+<tr> 
+<td>
+Noisy in-ear microphone
+</td>
+<td>
+<audio controls="controls"><source src="IM_noisy_factory_diffuse_5dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+<td>
+<audio controls="controls"><source src="IM_noisy_surgery_0dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+</tr>
+
+
+<tr> 
+<td>
+Noisy outer microphone
+</td>
+<td>
+<audio controls="controls"><source src="OM_noisy_factory_diffuse_5dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+<td>
+<audio controls="controls"><source src="OM_noisy_surgery_0dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+</tr>
+
+
+<tr> 
+<td>
+Processed, no IM noise in training
+</td>
+<td>
+<audio controls="controls"><source src="proc_no_IM_noise_factory_diffuse_5dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+<td>
+<audio controls="controls"><source src="proc_no_IM_noise_surgery_0dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+</tr>
+
+<tr> 
+<td>
+Processed, artificial head noise in training
+</td>
+<td>
+<audio controls="controls"><source src="proc_AH_noise_factory_diffuse_5dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+<td>
+<audio controls="controls"><source src="proc_AH_noise_surgery_0dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+</tr>
+
+<tr> 
+<td>
+Processed, individualized noise in training
+</td>
+<td>
+<audio controls="controls"><source src="proc_indiv_noise_factory_diffuse_5dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+<td>
+<audio controls="controls"><source src="proc_indiv_noise_surgery_0dB_SNR.wav" type="audio/x-wav" /></audio>
+</td>
+</tr>
+
+<table>
+
+
+</body>
+</html>
